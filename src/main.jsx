@@ -4,9 +4,12 @@ import "./index.css";
 // import App from "./App.jsx";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/router";
+import Authprovider from "./components/firebase/AuthProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Authprovider>
+      <RouterProvider router={router} />
+    </Authprovider>
   </StrictMode>
 );
