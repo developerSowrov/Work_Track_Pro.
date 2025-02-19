@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import Contact from "../pages/contact/Contact";
 import Login from "../pages/login/Login";
 import Registration from "../pages/registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <p>heloo</p>,
+        element: <PrivateRoute><p>heloo</p></PrivateRoute>,
       },
     ],
   },
