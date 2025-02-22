@@ -5,7 +5,7 @@ import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../components/firebase/AuthProvider";
 
 const Login = () => {
-  const { login, google } = useContext(AuthContext);
+  const { login, google, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,14 +16,16 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         navigate("/");
+        setUser(data);
       })
       .catch((err) => console.log(err));
   };
   const googleLogin = () => {
     google()
       .then((data) => {
-        console.log(data);
+        setUser(data.user);
         navigate("/");
+        console.log(data.user);
       })
       .catch((err) => console.log(err));
   };

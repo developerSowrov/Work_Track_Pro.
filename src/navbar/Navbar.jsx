@@ -5,9 +5,11 @@ import pic from "../assets/DALL·E 2025-02-17 02.22.43 - A sleek and modern logo
 import { useContext } from "react";
 import { AuthContext } from "../components/firebase/AuthProvider";
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, setUser } = useContext(AuthContext);
   const signOut = () => {
-    logOut();
+    logOut()
+      .then(() => setUser(null))
+      .catch((err) => console.log(err));
   };
   return (
     <div className=" bg-base-100 shadow-sm">

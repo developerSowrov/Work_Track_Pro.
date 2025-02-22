@@ -1,4 +1,4 @@
-import  { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { auth } from "./firebase.config";
 import {
   createUserWithEmailAndPassword,
@@ -9,10 +9,11 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 // import { auth } from "./firebase.config";
 
 export const AuthContext = createContext(null);
- const Authprovider = ( {children} ) => {
+const Authprovider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   // console.log(user);
@@ -32,13 +33,31 @@ export const AuthContext = createContext(null);
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        console.log(currentUser);
+        setLoading(false);
+        setUser(currentUser);
+        const userData = {
+          name: currentUser.displayName,
+          email: currentUser.email,
+          image: currentUser.photoURL,
+          role: "employee",
+        };
+        if (currentUser?.displayName) {
+          axios
+            .post(
+              `${import.meta.env.VITE_Localhost}/users/${currentUser.email}`,
+              userData
+            )
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        }
+      }
     });
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [user]);
   const profile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
