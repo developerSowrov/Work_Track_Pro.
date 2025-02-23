@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.active{
-    color:orange
+.active {
+  color: chocolate;
+  font-weight: bold;
 }
