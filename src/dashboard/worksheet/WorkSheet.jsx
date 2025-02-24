@@ -33,7 +33,8 @@ const WorkSheet = () => {
     const time = form.time.value;
     const date = form.date.value;
     const email = user.email;
-    const newWork = { workName, time, date, email };
+    const name = user.displayName;
+    const newWork = { workName, time, date, email, name };
 
     try {
       await axios.post(`${import.meta.env.VITE_Localhost}/workAdd`, newWork);

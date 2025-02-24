@@ -54,7 +54,7 @@ const DashLayout = () => {
             Employee List
           </NavLink>
           <NavLink
-            to="/dashboard/emne"
+            to="/dashboard/progress"
             className={({ isActive }) =>
               `py-2 px-2 rounded block ${
                 isActive ? "bg-white text-[#795548] font-bold" : "text-white"

@@ -11,6 +11,7 @@ import Profile from "../dashboard/profile/Profile";
 import WorkSheet from "../dashboard/worksheet/WorkSheet";
 import EmpList from "../dashboard/empList/EmpList";
 import Details from "../dashboard/details/Details";
+import Progress from "../dashboard/progress/Progress";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,7 @@ export const router = createBrowserRouter([
       //hr
       { path: "empList", element: <EmpList></EmpList> },
       { path: "details/:id", element: <Details></Details> },
+      { path: "progress", element: <Progress></Progress> },
       //
     ],
   },
