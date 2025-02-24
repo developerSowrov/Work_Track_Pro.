@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../components/firebase/AuthProvider";
 import { imgURL } from "../../utils/utils";
+import axios from "axios";
 
 const Registration = () => {
   const { creatUser, profile, setUser } = useContext(AuthContext);
@@ -13,8 +14,24 @@ const Registration = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const account = form.account.value;
+    const salary = form.salary.value;
+    const verified = false;
+    const role = form.role.value;
+    const designation = form.designation.value;
     const photo = form.photo.files[0];
     const photoUrl = await imgURL(photo);
+    const userData = {
+      name,
+      email,
+      password,
+      account,
+      salary,
+      verified,
+      role,
+      designation,
+      photoUrl,
+    };
 
     if (password.length < 6) {
       alert("❌ Password must be at least 6 characters long.");
@@ -34,6 +51,13 @@ const Registration = () => {
         profile(name, photoUrl)
           .then((data) => {
             setUser({ ...data, displayName: name, photoURL: photoUrl });
+            axios
+              .post(
+                `${import.meta.env.VITE_Localhost}/users/${email}`,
+                userData
+              )
+              .then((data) => console.log(data))
+              .catch((err) => console.log(err));
           })
           .catch((err) => console.log(err));
         navigate("/");
@@ -134,7 +158,11 @@ const Registration = () => {
           </div>
           {/* Designation */}
           <div className="mb-6 w-full">
-            <select name="" className="w-full py-2 pl-2 rounded-sm" id="">
+            <select
+              name="designation"
+              className="w-full py-2 pl-2 rounded-sm"
+              id=""
+            >
               <option value="" selected hidden>
                 Select Your Designation
               </option>
@@ -158,12 +186,12 @@ const Registration = () => {
           </div>
           {/* Select role */}
           <div className="mb-6 w-full">
-            <select name="" className="w-full py-2 pl-2 rounded-sm" id="">
+            <select name="role" className="w-full py-2 pl-2 rounded-sm" id="">
               <option value="" selected hidden>
                 Select Your Role
               </option>
-              <option value="Employee">Employee</option>
-              <option value="HR">HR</option>
+              <option value="employee">Employee</option>
+              <option value="hr">HR</option>
             </select>
           </div>
           {/* Register Button */}

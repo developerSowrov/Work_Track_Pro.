@@ -37,21 +37,16 @@ const Authprovider = ({ children }) => {
         console.log(currentUser);
         setLoading(false);
         setUser(currentUser);
-        const userData = {
-          name: currentUser.displayName,
-          email: currentUser.email,
-          image: currentUser.photoURL,
-          role: "employee",
-        };
-        if (currentUser?.displayName) {
-          axios
-            .post(
-              `${import.meta.env.VITE_Localhost}/users/${currentUser.email}`,
-              userData
-            )
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
-        }
+        // const userData = {
+        //   name: currentUser.displayName,
+        //   email: currentUser.email,
+        //   image: currentUser.photoURL,
+        //   role: "employee",
+        //   verified:false,
+        // };
+        // if (currentUser?.displayName) {
+          
+        // }
       }
     });
     return () => {

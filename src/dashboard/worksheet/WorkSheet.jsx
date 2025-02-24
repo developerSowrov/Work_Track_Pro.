@@ -3,6 +3,8 @@ import axios from "axios";
 import Loading from "../../pages/loading/Loading";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../components/firebase/AuthProvider";
+import Swal from "sweetalert2";
+import Error from "../../pages/Error/Error";
 
 const WorkSheet = () => {
   const { user } = useContext(AuthContext);
@@ -44,8 +46,47 @@ const WorkSheet = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${import.meta.env.VITE_Localhost}/deleteWork/${id}`);
-      refetch();
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, delete it!",
+          cancelButtonText: "No, cancel!",
+          reverseButtons: true,
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            await axios
+              .delete(`${import.meta.env.VITE_Localhost}/deleteWork/${id}`)
+              .then((data) => {
+                console.log(data);
+                swalWithBootstrapButtons.fire({
+                  title: "Deleted!",
+                  text: " Your data has been deleted.",
+                  icon: "success",
+                });
+              });
+            refetch();
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire({
+              title: "Cancelled",
+              text: "Your imfileaginary data is safe :)",
+              icon: "error",
+            });
+          }
+        });
     } catch (err) {
       console.error(err);
     }
@@ -74,8 +115,7 @@ const WorkSheet = () => {
   };
 
   if (isPending) return <Loading />;
-  if (error)
-    return <p className="text-red-500">An error occurred: {error.message}</p>;
+  if (error) return <Error></Error>;
 
   return (
     <div className="w-full mx-auto p-4">
@@ -106,7 +146,7 @@ const WorkSheet = () => {
             name="date"
             className="border p-2 rounded w-full"
           />
-          <button className="bg-blue-100 text-black px-4 py-2 rounded">
+          <button className="bg-[#795548] text-white px-4 py-2 rounded">
             Submit
           </button>
         </form>
@@ -115,13 +155,13 @@ const WorkSheet = () => {
       <div className="mt-6 overflow-x-auto">
         <table className="w-full border-collapse border border-gray-300">
           <thead>
-            <tr className="bg-blue-100">
-              <th className="p-2">#</th>
-              <th className="p-2">Task</th>
-              <th className="p-2">Working Hours</th>
-              <th className="p-2">Date</th>
-              <th className="p-2">Edit</th>
-              <th className="p-2">Delete</th>
+            <tr className="bg-[#795548] ">
+              <th className="p-2 text-white">#</th>
+              <th className="p-2 text-white">Task</th>
+              <th className="p-2 text-white">Working Hours</th>
+              <th className="p-2 text-white">Date</th>
+              <th className="p-2 text-white">Edit</th>
+              <th className="p-2 text-white">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -200,7 +240,7 @@ const WorkSheet = () => {
               </button>
               <button
                 onClick={handleUpdate}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 bg-[#795548] text-white rounded"
               >
                 Update
               </button>

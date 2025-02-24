@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import DashLayout from "../dashboard/DashboardLayout/DashLayout";
 import Profile from "../dashboard/profile/Profile";
 import WorkSheet from "../dashboard/worksheet/WorkSheet";
+import EmpList from "../dashboard/empList/EmpList";
+import Details from "../dashboard/details/Details";
 
 export const router = createBrowserRouter([
   {
@@ -43,9 +45,15 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { index: true,  element: <Profile></Profile> },
+      { index: true, element: <Profile></Profile> },
+      //employeee
       { path: "worksheet", element: <WorkSheet></WorkSheet> },
       { path: "emne", element: <h1>hei</h1> },
+
+      //hr
+      { path: "empList", element: <EmpList></EmpList> },
+      { path: "details/:id", element: <Details></Details> },
+      //
     ],
   },
 ]);

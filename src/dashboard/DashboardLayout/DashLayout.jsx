@@ -9,11 +9,6 @@ const DashLayout = () => {
           WorkTrackPro.
         </h2>
         <div className="flex flex-col gap-3">
-          {/* 
-            Default Profile route:
-            When "/dashboard" is loaded (default index route),
-            this link will be active.
-          */}
           <NavLink
             to="/dashboard"
             end
@@ -25,18 +20,7 @@ const DashLayout = () => {
           >
             Profile
           </NavLink>
-
-          <NavLink
-            to="/dashboard/emne"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Emne
-          </NavLink>
-
+          {/* employee */}
           <NavLink
             to="/dashboard/worksheet"
             className={({ isActive }) =>
@@ -46,6 +30,38 @@ const DashLayout = () => {
             }
           >
             Work Sheet
+          </NavLink>
+
+          <NavLink
+            to="/dashboard/emne"
+            className={({ isActive }) =>
+              `py-2 px-2 rounded block ${
+                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
+              }`
+            }
+          >
+            progress
+          </NavLink>
+          {/* hr */}
+          <NavLink
+            to="/dashboard/empList"
+            className={({ isActive }) =>
+              `py-2 px-2 rounded block ${
+                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
+              }`
+            }
+          >
+            Employee List
+          </NavLink>
+          <NavLink
+            to="/dashboard/emne"
+            className={({ isActive }) =>
+              `py-2 px-2 rounded block ${
+                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
+              }`
+            }
+          >
+            progress
           </NavLink>
         </div>
 
