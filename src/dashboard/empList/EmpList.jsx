@@ -17,7 +17,7 @@ const EmpList = () => {
   } = useQuery({
     queryKey: ["worklist"],
     queryFn: async () => {
-      const res = await fetch(`${import.meta.env.VITE_Localhost}/allEmployee`);
+      const res = await fetch(`${import.meta.env.VITE_Localhost}/employee`);
       return res.json();
     },
   });

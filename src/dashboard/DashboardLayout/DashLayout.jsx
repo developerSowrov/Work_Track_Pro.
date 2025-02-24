@@ -64,7 +64,17 @@ const DashLayout = () => {
             progress
           </NavLink>
         </div>
-
+        {/* admin */}
+        <NavLink
+          to="/dashboard/allEmployee"
+          className={({ isActive }) =>
+            `py-2 px-2 rounded block ${
+              isActive ? "bg-white text-[#795548] font-bold" : "text-white"
+            }`
+          }
+        >
+          All Employee
+        </NavLink>
         {/* Divider */}
         <div className="border-t border-white my-3"></div>
 

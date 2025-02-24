@@ -12,6 +12,7 @@ import WorkSheet from "../dashboard/worksheet/WorkSheet";
 import EmpList from "../dashboard/empList/EmpList";
 import Details from "../dashboard/details/Details";
 import Progress from "../dashboard/progress/Progress";
+import AllEmployee from "../dashboard/allEmployee/AllEmployee";
 
 export const router = createBrowserRouter([
   {
@@ -46,15 +47,58 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { index: true, element: <Profile></Profile> },
+      {
+        index: true,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
       //employeee
-      { path: "worksheet", element: <WorkSheet></WorkSheet> },
+      {
+        path: "worksheet",
+        element: (
+          <PrivateRoute>
+            <WorkSheet></WorkSheet>{" "}
+          </PrivateRoute>
+        ),
+      },
       { path: "emne", element: <h1>hei</h1> },
 
       //hr
-      { path: "empList", element: <EmpList></EmpList> },
-      { path: "details/:id", element: <Details></Details> },
-      { path: "progress", element: <Progress></Progress> },
+      {
+        path: "empList",
+        element: (
+          <PrivateRoute>
+            <EmpList></EmpList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "progress",
+        element: (
+          <PrivateRoute>
+            <Progress></Progress>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "allEmployee",
+        element: (
+          <PrivateRoute>
+            <AllEmployee></AllEmployee>
+          </PrivateRoute>
+        ),
+      },
       //
     ],
   },

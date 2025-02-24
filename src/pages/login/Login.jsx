@@ -18,7 +18,10 @@ const Login = () => {
         navigate("/");
         setUser(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        alert("The password doesn't match");
+        console.log(err);
+      });
   };
   const googleLogin = () => {
     google()

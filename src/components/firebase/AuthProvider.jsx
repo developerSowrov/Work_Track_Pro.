@@ -9,8 +9,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import axios from "axios";
-// import { auth } from "./firebase.config";
 
 export const AuthContext = createContext(null);
 const Authprovider = ({ children }) => {
@@ -37,16 +35,7 @@ const Authprovider = ({ children }) => {
         console.log(currentUser);
         setLoading(false);
         setUser(currentUser);
-        // const userData = {
-        //   name: currentUser.displayName,
-        //   email: currentUser.email,
-        //   image: currentUser.photoURL,
-        //   role: "employee",
-        //   verified:false,
-        // };
-        // if (currentUser?.displayName) {
-          
-        // }
+        
       }
     });
     return () => {

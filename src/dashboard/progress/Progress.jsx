@@ -25,14 +25,17 @@ const Progress = () => {
   const filteredData = employees.filter((emp) => {
     const matchesName = !selectedName || emp.name === selectedName;
 
-    const month = emp.date.split("-")[1];
+    const month = emp?.date?.split("-")[1];
 
     const matchesMonth = !selectedMonth || month === selectedMonth;
 
     return matchesName && matchesMonth;
   });
 
-  const totalHours = filteredData.reduce((sum, emp) => sum + emp.time, 0);
+  const totalHours = filteredData.reduce(
+    (sum, emp) => sum + parseInt(emp?.time),
+    0
+  );
 
   return (
     <div className="p-4 w-full mx-auto">
@@ -75,7 +78,7 @@ const Progress = () => {
         </select>
       </div>
 
-      <div className="bg-blue-100 p-3 rounded-lg text-center font-semibold text-lg mb-4">
+      <div className="bg-[#927c75] text-white p-3 rounded-lg text-center font-semibold text-lg mb-4">
         Total Work Hours: {totalHours}
       </div>
 
