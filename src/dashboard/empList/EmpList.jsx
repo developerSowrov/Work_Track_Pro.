@@ -6,6 +6,7 @@ import Loading from "../../pages/loading/Loading";
 import Error from "../../pages/Error/Error";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const EmpList = () => {
   const {
@@ -23,6 +24,48 @@ const EmpList = () => {
 
   // Mutation to update verification status
 
+  //  paybtn
+  const payBtn = async (salary, name) => {
+    console.log(name);
+    const { value: formValues } = await Swal.fire({
+      title: "Multiple inputs",
+      html: `
+        <input id="swal-input1" class="swal2-input "placeholder="Enter Month" required>
+        <input id="swal-input2" class="swal2-input " placeholder="Enter Year" required>
+        <input id="swal-input3"  value=${salary} class="swal2-input"  readonly>
+      `,
+      focusConfirm: false,
+      preConfirm: () => {
+        const month = document.getElementById("swal-input1").value;
+        const year = document.getElementById("swal-input2").value;
+        const salary = document.getElementById("swal-input3").value;
+        if (!month || !year) {
+          Swal.showValidationMessage("Please fill all required fields!");
+
+          return false;
+        }
+        return { month, year, salary };
+      },
+    });
+    if (formValues) {
+      const { month, year, salary } = formValues;
+      const values = {
+        month,
+        year,
+        salary,
+        name,
+        payment: false,
+        date: "-",
+      };
+      try {
+        axios
+          .post(`${import.meta.env.VITE_Localhost}/paymentReq`, values)
+          .then((data) => console.log(data));
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
   if (isPending) return <Loading />;
   if (error) return <Error />;
   refetch();
@@ -73,9 +116,21 @@ const EmpList = () => {
                 {employee.salary}
               </td>
               <td className="p-3 text-center">
-                <button className="bg-[#795548] text-white p-2 rounded-lg hover:bg-[#462f26]">
-                  <BsCurrencyDollar className="text-xl" />
-                </button>
+                {employee.verified ? (
+                  <button
+                    onClick={() => payBtn(employee.salary, employee.name)}
+                    className="bg-[#795548] text-white p-2 rounded-lg hover:bg-[#462f26]"
+                  >
+                    <BsCurrencyDollar className="text-xl" />
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="bg-gray-400 text-white p-2 rounded-lg "
+                  >
+                    <BsCurrencyDollar className="text-xl" />
+                  </button>
+                )}
               </td>
               <td className="p-3 text-center">
                 <Link to={`/dashboard/details/${employee._id}`}>

@@ -13,6 +13,7 @@ import EmpList from "../dashboard/empList/EmpList";
 import Details from "../dashboard/details/Details";
 import Progress from "../dashboard/progress/Progress";
 import AllEmployee from "../dashboard/allEmployee/AllEmployee";
+import Payroll from "../dashboard/payroll/Payroll";
 
 export const router = createBrowserRouter([
   {
@@ -96,6 +97,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AllEmployee></AllEmployee>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payroll",
+        element: (
+          <PrivateRoute>
+            <Payroll></Payroll>
           </PrivateRoute>
         ),
       },

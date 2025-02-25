@@ -170,6 +170,16 @@ const DashLayout = () => {
           >
             All Employee
           </NavLink>
+          <NavLink
+            to="/dashboard/payroll"
+            className={({ isActive }) =>
+              `py-2 px-2 rounded block ${
+                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
+              }`
+            }
+          >
+            Payroll
+          </NavLink>
         </div>
         {/* Divider */}
         <div className="border-t border-white my-3"></div>
