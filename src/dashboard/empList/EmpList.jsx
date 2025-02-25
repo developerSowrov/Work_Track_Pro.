@@ -25,7 +25,7 @@ const EmpList = () => {
   // Mutation to update verification status
 
   //  paybtn
-  const payBtn = async (salary, name) => {
+  const payBtn = async (salary, name, email) => {
     const { value: formValues } = await Swal.fire({
       title: "Send payment request",
       html: `
@@ -55,6 +55,7 @@ const EmpList = () => {
         name,
         payment: false,
         date: "-",
+        email,
       };
       try {
         axios
@@ -117,7 +118,9 @@ const EmpList = () => {
               <td className="p-3 text-center">
                 {employee.verified ? (
                   <button
-                    onClick={() => payBtn(employee.salary, employee.name)}
+                    onClick={() =>
+                      payBtn(employee.salary, employee.name, employee.email)
+                    }
                     className="bg-[#795548] text-white p-2 rounded-lg hover:bg-[#462f26]"
                   >
                     <BsCurrencyDollar className="text-xl" />

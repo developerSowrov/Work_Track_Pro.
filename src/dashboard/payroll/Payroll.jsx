@@ -19,7 +19,9 @@ const Payroll = () => {
       return res.json();
     },
   });
-  const payBtn = async (id) => {
+
+  const payBtn = async (id, employee) => {
+    console.log(employee);
     const currentDate = new Date().toLocaleDateString("en-GB");
     try {
       await axios.patch(
@@ -31,8 +33,21 @@ const Payroll = () => {
       );
 
       refetch();
+      paymentSend(employee);
     } catch (err) {
       console.log(err);
+    }
+  };
+  const paymentSend = async (employee) => {
+    try {
+      const trxId = Math.random().toString(36).substring(2, 12).toUpperCase();
+      const {email,salary,month,year} = employee
+      const data ={
+        email,salary,month,year,trxId
+      }
+      await axios.post(`${import.meta.env.VITE_Localhost}/successPayment`, data);
+    } catch (err) {
+      console.error("Error adding work:", err);
     }
   };
   if (isPending) return <Loading />;
@@ -67,7 +82,7 @@ const Payroll = () => {
                   </button>
                 ) : (
                   <button
-                    onClick={() => payBtn(employee._id, employee.email)}
+                    onClick={() => payBtn(employee._id, employee)}
                     className=" "
                   >
                     <FaCheckCircle className="text-green-500 text-2xl mx-auto" />
