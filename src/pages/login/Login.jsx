@@ -16,7 +16,6 @@ const Login = () => {
     const user = await axios.get(
       `${import.meta.env.VITE_Localhost}/getUser/${email}`
     );
-
     if (user.data?.fired) {
       return alert("Your account has been disabled by the admin.");
     }

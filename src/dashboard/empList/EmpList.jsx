@@ -8,14 +8,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const EmpList = () => {
-  // Fetch Employees
   const {
     data: employees = [],
     isPending,
     error,
     refetch,
   } = useQuery({
-    queryKey: ["worklist"],
+    queryKey: ["emplist"],
     queryFn: async () => {
       const res = await fetch(`${import.meta.env.VITE_Localhost}/employee`);
       return res.json();
