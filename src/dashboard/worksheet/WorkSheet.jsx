@@ -22,7 +22,9 @@ const WorkSheet = () => {
       const res = await fetch(
         `${import.meta.env.VITE_Localhost}/worklist/${user.email}`
       );
-      return res.json();
+      const data = await res.json();
+      console.log(data)
+      return data.sort((a, b) => new Date(b.date) - new Date(a.date));
     },
   });
 

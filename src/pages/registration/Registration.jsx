@@ -19,6 +19,7 @@ const Registration = () => {
     const verified = false;
     const role = form.role.value;
     const designation = form.designation.value;
+    const fired = false;
     const photo = form.photo.files[0];
     const photoUrl = await imgURL(photo);
     const userData = {
@@ -31,6 +32,7 @@ const Registration = () => {
       role,
       designation,
       photoUrl,
+      fired,
     };
 
     if (password.length < 6) {

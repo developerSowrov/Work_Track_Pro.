@@ -5,9 +5,10 @@ import Loading from "../../pages/loading/Loading";
 import { FaCheckCircle, FaQuestion } from "react-icons/fa";
 import { GiFireDash } from "react-icons/gi";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AllEmployee = () => {
-  const [viewMode, setViewMode] = useState("table"); // "table" or "grid"
+  const [viewMode, setViewMode] = useState("table");
 
   const {
     data: employees = [],
@@ -22,6 +23,51 @@ const AllEmployee = () => {
     },
   });
 
+  const fired = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn bg-[#795548] text-white ml-2",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "Fire on the employee!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, fired this!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then(async (result) => {
+        if (result.isConfirmed) {
+          await axios
+            .patch(`${import.meta.env.VITE_Localhost}/fireEmployee/${id}`, {
+              fired: true,
+            })
+            .then(
+              swalWithBootstrapButtons.fire({
+                title: "Fired!",
+                text: "Fired Complete",
+                icon: "success",
+              }),
+              refetch()
+            )
+            .catch((err) => console.log(err));
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your imaginary file is safe :)",
+            icon: "error",
+          });
+        }
+      });
+  };
   if (isPending) return <Loading />;
   if (error) return <Error />;
 
@@ -81,9 +127,13 @@ const AllEmployee = () => {
                     </button>
                   </td>
                   <td className="text-center">
-                    <button>
-                      <GiFireDash className="text-2xl text-red-500 ml-3" />
-                    </button>
+                    {employee.fired ? (
+                      <span className="text-red-500 font-semibold">Fired</span>
+                    ) : (
+                      <button onClick={() => fired(employee._id)}>
+                        <GiFireDash className="text-2xl text-red-500 ml-3" />
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -119,8 +169,14 @@ const AllEmployee = () => {
                     <FaQuestion className="text-xl" />
                   )}
                 </button>
-                <button className="text-red-500 hover:text-red-700 transition">
-                  <GiFireDash className="text-2xl" />
+                <button className="text-center">
+                  {employee.fired ? (
+                    <span className="text-red-500 font-semibold">Fired</span>
+                  ) : (
+                    <button onClick={() => fired(employee._id)}>
+                      <GiFireDash className="text-2xl text-red-500 ml-3" />
+                    </button>
+                  )}
                 </button>
               </div>
             </div>

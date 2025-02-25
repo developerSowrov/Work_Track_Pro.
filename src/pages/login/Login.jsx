@@ -3,16 +3,24 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../components/firebase/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const { login, google, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const pass = form.password.value;
-    login(email, pass)
+    const user = await axios.get(
+      `${import.meta.env.VITE_Localhost}/getUser/${email}`
+    );
+
+    if (user.data?.fired) {
+      return alert("Your account has been disabled by the admin.");
+    }
+    await login(email, pass)
       .then((data) => {
         console.log(data);
         navigate("/");
