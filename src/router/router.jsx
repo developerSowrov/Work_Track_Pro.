@@ -14,6 +14,7 @@ import Details from "../dashboard/details/Details";
 import Progress from "../dashboard/progress/Progress";
 import AllEmployee from "../dashboard/allEmployee/AllEmployee";
 import Payroll from "../dashboard/payroll/Payroll";
+import PaymentHistory from "../dashboard/paymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -65,7 +66,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "emne", element: <h1>hei</h1> },
+      {
+        path: "paymentHistory",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory></PaymentHistory>
+          </PrivateRoute>
+        ),
+      },
 
       //hr
       {

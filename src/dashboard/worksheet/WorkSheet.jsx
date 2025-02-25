@@ -168,7 +168,7 @@ const WorkSheet = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((task, index) => (
+            {tasks?.map((task, index) => (
               <tr key={task._id || index} className="text-center">
                 <td className="p-2">{index + 1}</td>
                 <td className="p-2">{task.workName}</td>
