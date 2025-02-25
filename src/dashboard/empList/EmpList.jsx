@@ -26,9 +26,8 @@ const EmpList = () => {
 
   //  paybtn
   const payBtn = async (salary, name) => {
-    console.log(name);
     const { value: formValues } = await Swal.fire({
-      title: "Multiple inputs",
+      title: "Send payment request",
       html: `
         <input id="swal-input1" class="swal2-input "placeholder="Enter Month" required>
         <input id="swal-input2" class="swal2-input " placeholder="Enter Year" required>

@@ -16,7 +16,7 @@ const Profile = () => {
           alt="Profile"
         />
         {/* User Info */}
-        <h2 className="text-2xl font-bold text-blue-600 mt-3">
+        <h2 className="text-2xl font-bold text-[#795548] mt-3">
           {user.displayName}
         </h2>
         <p className="text-gray-600 mt-2">

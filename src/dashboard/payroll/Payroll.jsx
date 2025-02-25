@@ -66,7 +66,10 @@ const Payroll = () => {
                     <FaCheckCircle className="text-gray-400 text-2xl mx-auto" />
                   </button>
                 ) : (
-                  <button onClick={() => payBtn(employee._id)} className=" ">
+                  <button
+                    onClick={() => payBtn(employee._id, employee.email)}
+                    className=" "
+                  >
                     <FaCheckCircle className="text-green-500 text-2xl mx-auto" />
                   </button>
                 )}

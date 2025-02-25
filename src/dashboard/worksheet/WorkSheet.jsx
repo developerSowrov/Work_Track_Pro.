@@ -23,7 +23,7 @@ const WorkSheet = () => {
         `${import.meta.env.VITE_Localhost}/worklist/${user.email}`
       );
       const data = await res.json();
-      console.log(data)
+      console.log(data);
       return data.sort((a, b) => new Date(b.date) - new Date(a.date));
     },
   });
@@ -51,7 +51,7 @@ const WorkSheet = () => {
     try {
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-          confirmButton: "btn btn-success",
+          confirmButton: "btn bg-[#795548] ml-3 text-white",
           cancelButton: "btn btn-danger",
         },
         buttonsStyling: false,
