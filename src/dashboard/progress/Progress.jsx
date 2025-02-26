@@ -4,15 +4,15 @@ import Loading from "../../pages/loading/Loading";
 import Error from "../../pages/Error/Error";
 
 const Progress = () => {
-  const [selectedName, setSelectedName] = useState(""); 
-  const [selectedMonth, setSelectedMonth] = useState(""); 
+  const [selectedName, setSelectedName] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
 
   const {
     data: employees = [],
     isPending,
     error,
   } = useQuery({
-    queryKey: ["worklist"],
+    queryKey: ["work"],
     queryFn: async () => {
       const res = await fetch(`${import.meta.env.VITE_Localhost}/worklist`);
       return res.json();

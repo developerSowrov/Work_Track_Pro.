@@ -12,7 +12,7 @@ const Details = () => {
     isPending,
     error,
   } = useQuery({
-    queryKey: ["worklist"],
+    queryKey: ["details"],
     queryFn: async () => {
       const res = await fetch(
         `${import.meta.env.VITE_Localhost}/details/${params.id}`

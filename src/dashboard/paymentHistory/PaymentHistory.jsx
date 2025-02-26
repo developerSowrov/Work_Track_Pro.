@@ -14,7 +14,7 @@ const PaymentHistory = () => {
     isPending,
     error,
   } = useQuery({
-    queryKey: ["paymentSucess"],
+    queryKey: ["paymentSuccess"],
     queryFn: async () => {
       const res = await fetch(
         `${import.meta.env.VITE_Localhost}/paymentHistory/${user.email}`

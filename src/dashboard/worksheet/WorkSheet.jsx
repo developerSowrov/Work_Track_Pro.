@@ -17,7 +17,7 @@ const WorkSheet = () => {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["worklist"],
+    queryKey: ["speciicWorkList"],
     queryFn: async () => {
       const res = await fetch(
         `${import.meta.env.VITE_Localhost}/worklist/${user.email}`

@@ -16,7 +16,7 @@ const AllEmployee = () => {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["workerList"],
+    queryKey: ["allEmpList"],
     queryFn: async () => {
       const res = await fetch(`${import.meta.env.VITE_Localhost}/allEmployee`);
       return res.json();
