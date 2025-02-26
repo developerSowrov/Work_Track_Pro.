@@ -32,8 +32,9 @@ Before running this project, ensure you have the following installed:
 - **Database**: MongoDB Atlas
 - **Authentication**: JWT (optional in future)
 
-## Contributors
+## Developer
 
-- [Sowrov](https://www.facebook.com/sowrov.nath.14)
-
-
+- **Sowrov**
+- [E-mail](sowrovwebd@gmail.com)
+- [Facebook](https://www.facebook.com/sowrov.nath.14)
+- Phone : 01690151180
