@@ -44,14 +44,18 @@ const Login = () => {
       });
   };
   const googleLogin = async () => {
-    // const user = await axios.get(
-    //   `${import.meta.env.VITE_Localhost}/getUser/${email}`
-    // );
-    // if (user.data?.fired) {
-    //   return Swal.fire("Your account has been disabled by the admin.");
-    // }
     google()
-      .then((data) => {
+      .then(async (data) => {
+        const user = await axios.get(
+          `${import.meta.env.VITE_Localhost}/getUser/${data.user.email}`
+        );
+        if (user.data?.fired) {
+          return Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Your account has been disabled by the admin.!",
+          });
+        }
         setUser(data.user);
         Swal.fire("Login Successfull");
         navigate("/");
