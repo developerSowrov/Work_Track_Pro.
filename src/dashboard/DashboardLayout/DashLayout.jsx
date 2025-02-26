@@ -35,7 +35,7 @@ const DashLayout = () => {
             to="/dashboard"
             end
             className={({ isActive }) =>
-              `py-2 px-2 rounded block mb-3 ${
+              `py-2 px-2 rounded block ${
                 isActive ? "bg-white text-[#795548] font-bold" : "text-white"
               }`
             }
@@ -44,7 +44,7 @@ const DashLayout = () => {
           </NavLink>
 
           {/* employee */}
-          {/* {bebohakari.role === "employee" && (
+          {bebohakari.role === "employee" && (
             <div className="flex flex-col gap-3">
               <NavLink
                 to="/dashboard/worksheet"
@@ -60,7 +60,7 @@ const DashLayout = () => {
               </NavLink>
 
               <NavLink
-                to="/dashboard/emne"
+                to="/dashboard/paymentHistory"
                 className={({ isActive }) =>
                   `py-2 px-2 rounded block ${
                     isActive
@@ -69,7 +69,7 @@ const DashLayout = () => {
                   }`
                 }
               >
-                progress
+                Payment History
               </NavLink>
             </div>
           )}
@@ -97,7 +97,7 @@ const DashLayout = () => {
                   }`
                 }
               >
-                progress
+                Progress
               </NavLink>
             </div>
           )}
@@ -116,70 +116,20 @@ const DashLayout = () => {
               >
                 All Employee
               </NavLink>
+              <NavLink
+                to="/dashboard/payroll"
+                className={({ isActive }) =>
+                  `py-2 px-2 rounded block ${
+                    isActive
+                      ? "bg-white text-[#795548] font-bold"
+                      : "text-white"
+                  }`
+                }
+              >
+                Payroll
+              </NavLink>
             </div>
-          )} */}
-
-          <NavLink
-            to="/dashboard/worksheet"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Work Sheet
-          </NavLink>
-
-          <NavLink
-            to="/dashboard/paymentHistory"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Payment History
-          </NavLink>
-          <NavLink
-            to="/dashboard/empList"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Employee List
-          </NavLink>
-          <NavLink
-            to="/dashboard/progress"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Progress
-          </NavLink>
-          <NavLink
-            to="/dashboard/allEmployee"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            All Employee
-          </NavLink>
-          <NavLink
-            to="/dashboard/payroll"
-            className={({ isActive }) =>
-              `py-2 px-2 rounded block ${
-                isActive ? "bg-white text-[#795548] font-bold" : "text-white"
-              }`
-            }
-          >
-            Payroll
-          </NavLink>
+          )}
         </div>
         {/* Divider */}
         <div className="border-t border-white my-3"></div>

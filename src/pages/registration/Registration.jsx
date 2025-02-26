@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/AuthProvider";
 import { imgURL } from "../../utils/utils";
 import axios from "axios";
+import { FaGoogle } from "react-icons/fa";
 
 const Registration = () => {
-  const { creatUser, profile, setUser } = useContext(AuthContext);
+  const { creatUser, profile, setUser, google } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +62,33 @@ const Registration = () => {
               .then((data) => console.log(data))
               .catch((err) => console.log(err));
           })
+          .catch((err) => console.log(err));
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
+  const googleLogin = () => {
+    google()
+      .then((data) => {
+        setUser(data.user);
+        const userData = {
+          email: data.user.email,
+          name: data.user.displayName,
+          account: 8786876677,
+          salary: 20000,
+          designation: "web developer",
+          verified: false,
+          role: "employee",
+          fired: false,
+          photoURL: data.user.photoURL,
+        };
+
+        axios
+          .post(
+            `${import.meta.env.VITE_Localhost}/users/${data.user.email}`,
+            userData
+          )
+          .then((data) => console.log(data))
           .catch((err) => console.log(err));
         navigate("/");
       })
@@ -204,8 +232,12 @@ const Registration = () => {
             Register
           </button>
         </form>
-
-        {/* Redirect to Login */}
+        <button
+          onClick={googleLogin}
+          className="w-full btn bg-white text-black font-semibold border mb-3 border-gray-300 hover:bg-gray-100 flex items-center justify-center"
+        >
+          <FaGoogle></FaGoogle> Sign in with Google
+        </button>
         <p className="text-center text-sm text-gray-600">
           Already have an account?{" "}
           <Link
