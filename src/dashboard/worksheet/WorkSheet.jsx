@@ -23,7 +23,6 @@ const WorkSheet = () => {
         `${import.meta.env.VITE_Localhost}/worklist/${user.email}`
       );
       const data = await res.json();
-      console.log(data);
       return data.sort((a, b) => new Date(b.date) - new Date(a.date));
     },
   });
@@ -42,8 +41,13 @@ const WorkSheet = () => {
       await axios.post(`${import.meta.env.VITE_Localhost}/workAdd`, newWork);
       refetch();
       form.reset();
+      Swal.fire({
+        icon: "success",
+        title: "Word Added Successful",
+        draggable: true,
+      });
     } catch (err) {
-      console.error("Error adding work:", err);
+      // console.error("Error adding work:", err);
     }
   };
 
@@ -71,10 +75,10 @@ const WorkSheet = () => {
             await axios
               .delete(`${import.meta.env.VITE_Localhost}/deleteWork/${id}`)
               .then((data) => {
-                console.log(data);
+                // console.log(data);
                 swalWithBootstrapButtons.fire({
                   title: "Deleted!",
-                  text: " Your data has been deleted.",
+                  text: " Your work has been deleted.",
                   icon: "success",
                 });
               });
@@ -85,13 +89,13 @@ const WorkSheet = () => {
           ) {
             swalWithBootstrapButtons.fire({
               title: "Cancelled",
-              text: "Your imfileaginary data is safe :)",
+              text: "Your imfileaginary work is safe :)",
               icon: "error",
             });
           }
         });
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -111,9 +115,14 @@ const WorkSheet = () => {
         }
       );
       refetch();
+      Swal.fire({
+        icon: "success",
+        title: "Work Updated",
+        draggable: true,
+      });
       setIsModalOpen(false);
     } catch (err) {
-      console.error("Error updating work:", err);
+      // console.error("Error updating work:", err);
     }
   };
 
@@ -143,11 +152,13 @@ const WorkSheet = () => {
             name="time"
             placeholder="Hours Worked"
             className="border p-2 rounded w-full"
+            required
           />
           <input
             type="date"
             name="date"
             className="border p-2 rounded w-full"
+            required
           />
           <button className="bg-[#795548] text-white px-4 py-2 rounded">
             Submit

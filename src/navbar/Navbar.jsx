@@ -1,5 +1,3 @@
-
-
 import { Link, NavLink } from "react-router-dom";
 import pic from "../assets/DALL·E 2025-02-17 02.22.43 - A sleek and modern logo for 'WorkTrackPro'. The design should use blue and gray tones, symbolizing professionalism and efficiency. Include an abstract.webp";
 import { useContext } from "react";
@@ -9,7 +7,9 @@ const Navbar = () => {
   const signOut = () => {
     logOut()
       .then(() => setUser(null))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   return (
     <div className=" bg-base-100 shadow-sm">
@@ -54,9 +54,9 @@ const Navbar = () => {
             </div>
           ) : (
             <div>
-              <Link to={"/login"}>
+              <Link to={"/registration"}>
                 <button className="btn bg-yellow-500 text-white font-semibold">
-                  Login
+                  Sign Up
                 </button>
               </Link>
             </div>

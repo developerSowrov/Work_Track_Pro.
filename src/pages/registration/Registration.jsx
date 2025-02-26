@@ -5,6 +5,7 @@ import { AuthContext } from "../../components/firebase/AuthProvider";
 import { imgURL } from "../../utils/utils";
 import axios from "axios";
 import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Registration = () => {
   const { creatUser, profile, setUser, google } = useContext(AuthContext);
@@ -37,40 +38,70 @@ const Registration = () => {
     };
 
     if (password.length < 6) {
-      alert("❌ Password must be at least 6 characters long.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "❌ Password must be at least 6 characters long.",
+      });
       return;
     }
     if (!/[A-Z]/.test(password)) {
-      alert("❌ Password must contain at least one uppercase letter.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "❌ Password must contain at least one uppercase letter.",
+      });
       return;
     }
     if (!/[\W]/.test(password)) {
-      alert("❌ Password must contain at least one special character.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "❌ Password must contain at least one special character.",
+      });
       return;
     }
     creatUser(email, password)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         profile(name, photoUrl)
           .then((data) => {
             setUser({ ...data, displayName: name, photoURL: photoUrl });
+            Swal.fire({
+              icon: "success",
+              title: "Login Successfull",
+              draggable: true,
+            });
             axios
               .post(
                 `${import.meta.env.VITE_Localhost}/users/${email}`,
                 userData
               )
-              .then((data) => console.log(data))
-              .catch((err) => console.log(err));
+              .then((data) => {
+                // console.log(data)
+              })
+              .catch((err) => {
+                // console.log(err)
+              });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            // console.log(err)
+          });
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err)
+      });
   };
   const googleLogin = () => {
     google()
       .then((data) => {
         setUser(data.user);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successfull",
+          draggable: true,
+        });
         const userData = {
           email: data.user.email,
           name: data.user.displayName,
@@ -88,11 +119,17 @@ const Registration = () => {
             `${import.meta.env.VITE_Localhost}/users/${data.user.email}`,
             userData
           )
-          .then((data) => console.log(data))
-          .catch((err) => console.log(err));
+          .then((data) => {
+            // console.log(data)
+          })
+          .catch((err) => {
+            // console.log(err)
+          });
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err)
+      });
   };
   return (
     <div className="flex items-center justify-center mt-20 bg-base-200 p-4">

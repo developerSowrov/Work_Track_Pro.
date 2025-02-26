@@ -3,6 +3,7 @@ import Loading from "../../pages/loading/Loading";
 import Error from "../../pages/Error/Error";
 import { FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Payroll = () => {
   const {
@@ -21,7 +22,6 @@ const Payroll = () => {
   });
 
   const payBtn = async (id, employee) => {
-    console.log(employee);
     const currentDate = new Date().toLocaleDateString("en-GB");
     try {
       await axios.patch(
@@ -31,11 +31,17 @@ const Payroll = () => {
           date: currentDate,
         }
       );
-
+      
       refetch();
+      Swal.fire({
+        icon: "success",
+        title: "Payment Successfull",
+        draggable: true,
+      });
+
       paymentSend(employee);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   const paymentSend = async (employee) => {
@@ -47,7 +53,7 @@ const Payroll = () => {
       }
       await axios.post(`${import.meta.env.VITE_Localhost}/successPayment`, data);
     } catch (err) {
-      console.error("Error adding work:", err);
+      // console.error("Error adding work:", err);
     }
   };
   if (isPending) return <Loading />;
@@ -68,7 +74,7 @@ const Payroll = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee, index) => (
+          {employees?.map((employee, index) => (
             <tr key={employee.id} className="border-b hover:bg-gray-50">
               <td className="p-3 font-semibold text-gray-800">{index + 1}</td>
               <td className="p-3">{employee.name}</td>

@@ -53,7 +53,7 @@ const PaymentHistory = () => {
             </tr>
           </thead>
           <tbody>
-            {selectedEmployees.map((employee, index) => (
+            {selectedEmployees?.map((employee, index) => (
               <tr key={employee.id} className="border-b hover:bg-gray-50">
                 <td className="p-3 font-semibold text-center text-gray-800">
                   {startIndex + index + 1}

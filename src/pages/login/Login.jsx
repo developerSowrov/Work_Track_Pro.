@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../components/firebase/AuthProvider";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { login, google, setUser } = useContext(AuthContext);
@@ -17,27 +18,47 @@ const Login = () => {
       `${import.meta.env.VITE_Localhost}/getUser/${email}`
     );
     if (user.data?.fired) {
-      return alert("Your account has been disabled by the admin.");
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Your account has been disabled by the admin.!",
+      });
     }
     await login(email, pass)
       .then((data) => {
-        console.log(data);
-        navigate("/");
         setUser(data);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successfull",
+          draggable: true,
+        });
+        navigate("/");
       })
       .catch((err) => {
-        alert("The password doesn't match");
-        console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "The password doesn't match!",
+        });
+        // console.log(err);
       });
   };
-  const googleLogin = () => {
+  const googleLogin = async () => {
+    // const user = await axios.get(
+    //   `${import.meta.env.VITE_Localhost}/getUser/${email}`
+    // );
+    // if (user.data?.fired) {
+    //   return Swal.fire("Your account has been disabled by the admin.");
+    // }
     google()
       .then((data) => {
         setUser(data.user);
+        Swal.fire("Login Successfull");
         navigate("/");
-        console.log(data.user);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err)
+      });
   };
   return (
     <div className="flex items-center justify-center mt-20 bg-base-200 p-4">

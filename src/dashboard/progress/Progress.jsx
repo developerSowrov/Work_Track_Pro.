@@ -22,7 +22,7 @@ const Progress = () => {
   if (isPending) return <Loading />;
   if (error) return <Error />;
 
-  const filteredData = employees.filter((emp) => {
+  const filteredData = employees?.filter((emp) => {
     const matchesName = !selectedName || emp.name === selectedName;
 
     const month = emp?.date?.split("-")[1];
@@ -51,7 +51,7 @@ const Progress = () => {
           <option value="" hidden>
             Sort by Name
           </option>
-          {[...new Set(employees.map((emp) => emp.name))].map((name) => (
+          {[...new Set(employees?.map((emp) => emp.name))].map((name) => (
             <option key={name} value={name}>
               {name}
             </option>
@@ -95,7 +95,7 @@ const Progress = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((emp, index) => (
+            {filteredData?.map((emp, index) => (
               <tr key={emp.id} className="border-b hover:bg-gray-50">
                 <td className="p-2">{index + 1}</td>
                 <td className="p-2">{emp.name}</td>

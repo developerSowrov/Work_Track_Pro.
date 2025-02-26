@@ -22,7 +22,6 @@ const EmpList = () => {
     },
   });
 
-
   //  paybtn
   const payBtn = async (salary, name, email) => {
     const { value: formValues } = await Swal.fire({
@@ -59,9 +58,18 @@ const EmpList = () => {
       try {
         axios
           .post(`${import.meta.env.VITE_Localhost}/paymentReq`, values)
-          .then((data) => console.log(data));
+
+          .then((response) => {
+            if(response.data.insertedId){
+              Swal.fire({
+                icon: "success",
+                title: "Payment Request is Sended",
+                draggable: true,
+              });
+            }
+          });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     }
   };
@@ -85,7 +93,7 @@ const EmpList = () => {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee, index) => (
+          {employees?.map((employee, index) => (
             <tr key={employee.id} className="border-b hover:bg-gray-50">
               <td className="p-3 font-semibold text-gray-800">{index + 1}</td>
               <td className="p-3">{employee.name}</td>
@@ -93,12 +101,26 @@ const EmpList = () => {
               <td className="p-3 text-center">
                 <button
                   onClick={async () => {
-                    await axios.patch(
-                      `${import.meta.env.VITE_Localhost}/verified/${
-                        employee._id
-                      }`,
-                      { verified: !employee.verified }
-                    );
+                    await axios
+                      .patch(
+                        `${import.meta.env.VITE_Localhost}/verified/${
+                          employee._id
+                        }`,
+                        { verified: !employee.verified }
+                      )
+                      .then((response) => {
+                        if (response.data.modifiedCount > 0) {
+                          refetch();
+
+                          Swal.fire({
+                            icon: !employee.verified ? "success" : "info",
+                            title: !employee.verified
+                              ? "Verified Successfully"
+                              : "Verification Removed",
+                            draggable: true,
+                          });
+                        }
+                      });
                     refetch();
                   }}
                   className="focus:outline-none"

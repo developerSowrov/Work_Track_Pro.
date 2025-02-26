@@ -50,12 +50,14 @@ const AllEmployee = () => {
             .then(
               swalWithBootstrapButtons.fire({
                 title: "Fired!",
-                text: "Fired Complete",
+                text: "Fired Completed",
                 icon: "success",
               }),
               refetch()
             )
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              // console.log(err);
+            });
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -99,7 +101,7 @@ const AllEmployee = () => {
               </tr>
             </thead>
             <tbody>
-              {employees.map((employee, index) => (
+              {employees?.map((employee, index) => (
                 <tr key={employee.id} className="border-b hover:bg-gray-50">
                   <td className="p-3 font-semibold text-gray-800">
                     {index + 1}
@@ -109,13 +111,23 @@ const AllEmployee = () => {
                   <td className="text-center">
                     <button
                       onClick={async () => {
-                        await axios.patch(
-                          `${import.meta.env.VITE_Localhost}/makeHR/${
-                            employee._id
-                          }`,
-                          { role: "hr" }
-                        );
-                        refetch();
+                        await axios
+                          .patch(
+                            `${import.meta.env.VITE_Localhost}/makeHR/${
+                              employee._id
+                            }`,
+                            { role: "hr" }
+                          )
+                          .then((response) => {
+                            refetch();
+                            if (response.data.modifiedCount > 0) {
+                              Swal.fire({
+                                icon: "success",
+                                title: `Now ${employee.name} is HR`,
+                                draggable: true,
+                              });
+                            }
+                          });
                       }}
                       className="focus:outline-none"
                     >
@@ -143,7 +155,7 @@ const AllEmployee = () => {
       ) : (
         // Grid View
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {employees.map((employee) => (
+          {employees?.map((employee) => (
             <div
               key={employee.id}
               className="bg-white shadow-md rounded-lg p-5 border"
@@ -163,17 +175,17 @@ const AllEmployee = () => {
                   }}
                   className="text-green-600 hover:text-green-700 transition"
                 >
-                  {employee.role === "hr" ? (
+                  {employee?.role === "hr" ? (
                     <FaCheckCircle className="text-xl" />
                   ) : (
                     <FaQuestion className="text-xl" />
                   )}
                 </button>
                 <button className="text-center">
-                  {employee.fired ? (
+                  {employee?.fired ? (
                     <span className="text-red-500 font-semibold">Fired</span>
                   ) : (
-                    <button onClick={() => fired(employee._id)}>
+                    <button onClick={() => fired(employee?._id)}>
                       <GiFireDash className="text-2xl text-red-500 ml-3" />
                     </button>
                   )}
