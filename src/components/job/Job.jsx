@@ -1,4 +1,4 @@
-// import React from "react"/;
+
 import pic from "../../assets/2333362_310830-P8R3OL-35.jpg";
 const Job = () => {
   return (

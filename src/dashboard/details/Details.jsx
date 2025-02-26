@@ -31,7 +31,6 @@ const Details = () => {
             Employee Details
           </h1>
 
-          {/* Employee Card */}
           <div className="flex flex-col sm:flex-row border-0 border-b border-gray-300 items-center gap-6 p-4 ">
             <img
               src={employee.photoUrl}
@@ -46,7 +45,6 @@ const Details = () => {
             </div>
           </div>
 
-          {/* Employee Details */}
           <div className="mt-4 space-y-4">
             <div className="grid grid-cols-2 gap-20 border-b border-gray-300 pb-2">
               <span className="font-semibold text-gray-700 grid-cols-1">

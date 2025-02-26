@@ -73,6 +73,7 @@ const DashLayout = () => {
               </NavLink>
             </div>
           )}
+          {/* hr */}
           {bebohakari.role === "hr" && (
             <div className="flex flex-col gap-3">
               <NavLink
@@ -101,7 +102,7 @@ const DashLayout = () => {
               </NavLink>
             </div>
           )}
-
+          {/* admin */}
           {bebohakari.role === "admin" && (
             <div className="flex flex-col gap-3">
               <NavLink

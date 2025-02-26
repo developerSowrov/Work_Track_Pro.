@@ -100,6 +100,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      //admin
       {
         path: "allEmployee",
         element: (
@@ -116,7 +117,6 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      //
     ],
   },
 ]);

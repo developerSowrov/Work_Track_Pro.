@@ -1,4 +1,3 @@
-// import React from "react";
 import one from "../../assets/Job1-01.jpg";
 import two from "../../assets/19874.jpg";
 import three from "../../assets/5561930_21304.jpg";

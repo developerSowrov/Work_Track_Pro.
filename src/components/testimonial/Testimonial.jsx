@@ -1,4 +1,3 @@
-// import React from "react";
 import one from "../../assets/portrait-business-woman-office.jpg";
 import two from "../../assets/portrait-young-man-with-bulb-idea-concept.jpg";
 import three from "../../assets/serious-man-formal-jacket-tie-standing-camera.jpg";
@@ -16,7 +15,6 @@ const Testimonial = () => {
               </span>
             </h2>
 
-            {/* Testimonials Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Testimonial 1 */}
               <div className="bg-white p-6 shadow-lg rounded-lg">

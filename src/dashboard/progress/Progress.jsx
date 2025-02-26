@@ -4,8 +4,8 @@ import Loading from "../../pages/loading/Loading";
 import Error from "../../pages/Error/Error";
 
 const Progress = () => {
-  const [selectedName, setSelectedName] = useState(""); // Default empty for name filter
-  const [selectedMonth, setSelectedMonth] = useState(""); // Default empty for month filter
+  const [selectedName, setSelectedName] = useState(""); 
+  const [selectedMonth, setSelectedMonth] = useState(""); 
 
   const {
     data: employees = [],

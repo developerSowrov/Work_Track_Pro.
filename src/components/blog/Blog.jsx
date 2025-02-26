@@ -1,4 +1,4 @@
-// import React from "react";
+
 import one from "../../assets/businessman-suit-working-tablet-with-charts-conference-room-team-brainstorm.jpg";
 import two from "../../assets/confident-business-people-standing-board-meeting.jpg";
 const Blog = () => {

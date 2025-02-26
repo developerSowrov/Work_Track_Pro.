@@ -1,4 +1,4 @@
-// import React from "react";
+
 
 import { Link, NavLink } from "react-router-dom";
 import pic from "../assets/DALL·E 2025-02-17 02.22.43 - A sleek and modern logo for 'WorkTrackPro'. The design should use blue and gray tones, symbolizing professionalism and efficiency. Include an abstract.webp";

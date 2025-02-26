@@ -22,7 +22,6 @@ const EmpList = () => {
     },
   });
 
-  // Mutation to update verification status
 
   //  paybtn
   const payBtn = async (salary, name, email) => {

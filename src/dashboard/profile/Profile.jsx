@@ -1,6 +1,4 @@
-// import React from "react";
-// import { useQuery } from "@tanstack/react-query";
-// import axios from "axios";
+
 import { useContext } from "react";
 import { AuthContext } from "../../components/firebase/AuthProvider";
 
@@ -31,7 +29,6 @@ const Profile = () => {
           </span>
           {user.bankAccount}
         </p>
-        {/* Welcome Message */}
         <div className="mt-4">
           <p className="text-gray-500 text-sm">
             Welcome to the dashboard! This is your central hub for managing

@@ -1,4 +1,4 @@
-// import React from 'react';
+
 
 import Banner from "../../components/Banner/Banner";
 import Blog from "../../components/blog/Blog";
