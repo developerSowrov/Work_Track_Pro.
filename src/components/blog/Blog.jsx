@@ -44,9 +44,11 @@ const Blog = () => {
           </div>
         </div>
         <div className="text-center mt-4">
-          <button className="bg-[#795548]   text-white font-semibold px-4 py-2 rounded-md">
-            See All
-          </button>
+          <a href="/blog/all-blogs">
+            <button className="bg-[#795548]   text-white font-semibold px-4 py-2 rounded-md">
+              See All
+            </button>
+          </a>
         </div>
       </div>
     </div>

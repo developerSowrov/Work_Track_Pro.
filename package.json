@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@devexpress/dx-react-chart": "^4.0.10",
+    "@devexpress/dx-react-core": "^4.0.10",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-query": "^5.66.9",
     "axios": "^1.7.9",

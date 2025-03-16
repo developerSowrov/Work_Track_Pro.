@@ -6,6 +6,8 @@ import Job from "../../components/job/Job";
 import Service from "../../components/service/Service";
 import Teams from "../../components/team/Teams";
 import Testimonial from "../../components/testimonial/Testimonial";
+// import PopularChart from "../char/PopularChart";
+// import Charts from "../char/PopularChart";
 
 const Home = () => {
   return (
@@ -18,6 +20,7 @@ const Home = () => {
       <Features></Features>
       <Blog></Blog>
       <Faqs></Faqs>
+      {/* <PopularChart></PopularChart> */}
     </div>
   );
 };
