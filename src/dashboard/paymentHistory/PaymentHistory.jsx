@@ -43,7 +43,7 @@ const PaymentHistory = () => {
       <div className="overflow-x-auto">
         <h1 className="text-3xl font-bold text-center mb-4">Employee List</h1>
         <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
-          <thead className="bg-[#795548] text-gray-700">
+          <thead className="bg-[#795548] text-gray-700 text-sm md:text-base lg:text-lg">
             <tr>
               <th className="p-3 text-center text-white">#</th>
               <th className="p-3 text-center text-white">Month</th>
@@ -54,7 +54,10 @@ const PaymentHistory = () => {
           </thead>
           <tbody>
             {selectedEmployees?.map((employee, index) => (
-              <tr key={employee.id} className="border-b hover:bg-gray-50">
+              <tr
+                key={employee.id}
+                className="border-b hover:bg-gray-50 text-sm md:text-base lg:text-lg"
+              >
                 <td className="p-3 font-semibold text-center text-gray-800">
                   {startIndex + index + 1}
                 </td>

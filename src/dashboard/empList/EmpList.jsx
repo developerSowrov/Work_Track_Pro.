@@ -77,10 +77,10 @@ const EmpList = () => {
   if (error) return <Error />;
   refetch();
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto " >
       <h1 className="text-3xl font-bold text-center mb-4">Employee List</h1>
       <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
-        <thead className="bg-[#795548] text-gray-700">
+        <thead className="bg-[#795548] text-gray-700 text-sm md:text-base lg:text-lg">
           <tr>
             <th className="p-3 text-left text-white">#</th>
             <th className="p-3 text-left text-white">Name</th>
@@ -94,7 +94,7 @@ const EmpList = () => {
         </thead>
         <tbody>
           {employees?.map((employee, index) => (
-            <tr key={employee.id} className="border-b hover:bg-gray-50">
+            <tr key={employee.id} className="border-b hover:bg-gray-50 ">
               <td className="p-3 font-semibold text-gray-800">{index + 1}</td>
               <td className="p-3">{employee.name}</td>
               <td className="p-3 text-gray-600">{employee.email}</td>

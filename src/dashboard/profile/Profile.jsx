@@ -1,12 +1,11 @@
-
 import { useContext } from "react";
 import { AuthContext } from "../../components/firebase/AuthProvider";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg text-center  w-8/12">
+    <div className="flex flex-col items-center justify-center  px-4 py-10 rounded-lg mb-5 bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-lg text-center w-full  lg:w-8/12">
         {/* Profile Image */}
         <img
           className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-gray-300"
