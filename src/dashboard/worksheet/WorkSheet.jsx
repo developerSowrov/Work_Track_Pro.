@@ -130,15 +130,15 @@ const WorkSheet = () => {
   if (error) return <Error></Error>;
 
   return (
-    <div className="w-full mx-auto p-4">
+    <div className="w-full mx-auto md:p-4 ">
       <h1 className="text-3xl font-bold text-center mb-4">Work Sheet</h1>
       <div className="bg-gray-100 p-4 rounded-lg shadow-md">
         <h2 className="font-semibold mb-2">Add a New Work Query</h2>
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-1 md:grid-cols-4 gap-4"
+          className="grid grid-cols-1 lg:grid-cols-4 gap-4"
         >
-          <select name="work" className="border p-2 rounded w-full">
+          <select name="work" className="border outline-[#795548] p-2 rounded w-full">
             <option value="" hidden>
               Select Your Task
             </option>
@@ -151,13 +151,13 @@ const WorkSheet = () => {
             type="number"
             name="time"
             placeholder="Hours Worked"
-            className="border p-2 rounded w-full"
+            className="border outline-[#795548] p-2 rounded w-full"
             required
           />
           <input
             type="date"
             name="date"
-            className="border p-2 rounded w-full"
+            className="border outline-[#795548] p-2 rounded w-full"
             required
           />
           <button className="bg-[#795548] text-white px-4 py-2 rounded">
@@ -169,7 +169,7 @@ const WorkSheet = () => {
       <div className="mt-6 overflow-x-auto">
         <table className="w-full border-collapse border border-gray-300">
           <thead>
-            <tr className="bg-[#795548] ">
+            <tr className="bg-[#795548] text-sm md:text-base lg:text-lg ">
               <th className="p-2 text-white">#</th>
               <th className="p-2 text-white">Task</th>
               <th className="p-2 text-white">Working Hours</th>
@@ -180,7 +180,7 @@ const WorkSheet = () => {
           </thead>
           <tbody>
             {tasks?.map((task, index) => (
-              <tr key={task._id || index} className="text-center">
+              <tr key={task._id || index} className="text-center text-sm md:text-base lg:text-lg">
                 <td className="p-2">{index + 1}</td>
                 <td className="p-2">{task.workName}</td>
                 <td className="p-2">{task.time}</td>
