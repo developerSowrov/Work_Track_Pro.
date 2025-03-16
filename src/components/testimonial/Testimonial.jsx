@@ -21,7 +21,7 @@ const Testimonial = () => {
                 <img
                   src={one}
                   alt="Albert Webb"
-                  className="w-16 h-16 mx-auto rounded-full mb-4"
+                  className="w-16 h-16 mx-auto object-cover rounded-full mb-4"
                 />
                 <h3 className="text-lg font-semibold text-[#795548] ">
                   Albert Webb
@@ -40,7 +40,7 @@ const Testimonial = () => {
                 <img
                   src={two}
                   alt="Kelly McMillan"
-                  className="w-16 h-16 mx-auto rounded-full mb-4"
+                  className="w-16 h-16 mx-auto object-cover rounded-full mb-4"
                 />
                 <h3 className="text-lg font-semibold text-[#795548] ">
                   Kelly McMillan
@@ -58,7 +58,7 @@ const Testimonial = () => {
                 <img
                   src={three}
                   alt="Harold Barnett"
-                  className="w-16 h-16 mx-auto rounded-full mb-4"
+                  className="w-16 h-16 mx-auto object-cover rounded-full mb-4"
                 />
                 <h3 className="text-lg font-semibold text-[#795548] ">
                   Harold Barnett

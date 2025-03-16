@@ -5,3 +5,34 @@
   color: chocolate;
   font-weight: bold;
 }
+
+.btn-primary {
+  background-color: #795548;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #6a4f39;
+}
+
+.feature-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  color: #333;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #666;
+}
