@@ -9,22 +9,22 @@ const Banner = () => {
         <div className="carousel rounded-box w-full">
           <div className="carousel-item w-full">
             <img
-              src={one}
-              className="w-full h-[500px]"
-              alt="Tailwind CSS Carousel component"
-            />
-          </div>
-          <div className="carousel-item w-full">
-            <img
               src={two}
-              className="w-full h-[500px]"
+              className="w-full object-cover h-[500px]"
               alt="Tailwind CSS Carousel component"
             />
           </div>
           <div className="carousel-item w-full">
             <img
               src={three}
-              className="w-full h-[500px]"
+              className="w-full object-cover h-[500px]"
+              alt="Tailwind CSS  Carousel component"
+            />
+          </div>
+          <div className="carousel-item w-full">
+            <img
+              src={one}
+              className="w-full object-cover h-[500px]"
               alt="Tailwind CSS Carousel component"
             />
           </div>

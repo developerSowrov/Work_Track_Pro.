@@ -23,7 +23,7 @@ const Testimonial = () => {
                   alt="Albert Webb"
                   className="w-16 h-16 mx-auto rounded-full mb-4"
                 />
-                <h3 className="text-lg font-semibold text-orange-500">
+                <h3 className="text-lg font-semibold text-[#795548] ">
                   Albert Webb
                 </h3>
                 <p className="text-gray-500 text-sm">Regular Client</p>
@@ -42,7 +42,7 @@ const Testimonial = () => {
                   alt="Kelly McMillan"
                   className="w-16 h-16 mx-auto rounded-full mb-4"
                 />
-                <h3 className="text-lg font-semibold text-orange-500">
+                <h3 className="text-lg font-semibold text-[#795548] ">
                   Kelly McMillan
                 </h3>
                 <p className="text-gray-500 text-sm">Regular Client</p>
@@ -60,7 +60,7 @@ const Testimonial = () => {
                   alt="Harold Barnett"
                   className="w-16 h-16 mx-auto rounded-full mb-4"
                 />
-                <h3 className="text-lg font-semibold text-orange-500">
+                <h3 className="text-lg font-semibold text-[#795548] ">
                   Harold Barnett
                 </h3>
                 <p className="text-gray-500 text-sm">Regular Client</p>

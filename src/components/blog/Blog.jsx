@@ -1,10 +1,9 @@
-
 import one from "../../assets/businessman-suit-working-tablet-with-charts-conference-room-team-brainstorm.jpg";
 import two from "../../assets/confident-business-people-standing-board-meeting.jpg";
 const Blog = () => {
   return (
     <div>
-      <div className="bg-gray-100 p-8 rounded-lg shadow-md">
+      <div className="bg-gray-100 p-8 mb-20 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Our Blog & News</h2>
         <p className="text-gray-600 mb-6">
           Discover the latest insights and trends in education, technology, and
@@ -45,7 +44,7 @@ const Blog = () => {
           </div>
         </div>
         <div className="text-center mt-4">
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-md">
+          <button className="bg-[#795548]   text-white font-semibold px-4 py-2 rounded-md">
             See All
           </button>
         </div>

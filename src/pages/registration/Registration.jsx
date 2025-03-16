@@ -134,7 +134,7 @@ const Registration = () => {
   return (
     <div className="flex items-center justify-center mt-20 bg-base-200 p-4">
       <div className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white">
-        <h1 className="text-3xl font-bold text-center text-yellow-500 mb-6">
+        <h1 className="text-3xl font-bold text-center text-[#795548]  mb-6">
           Register for WorkTrackPro.
         </h1>
         <form onSubmit={handleSubmit}>
@@ -264,7 +264,7 @@ const Registration = () => {
           {/* Register Button */}
           <button
             type="submit"
-            className="w-full btn bg-yellow-500 text-white font-semibold hover:bg-yellow-600 mb-4"
+            className="w-full btn bg-[#795548]  text-white font-semibold hover:bg-yellow-600 mb-4"
           >
             Register
           </button>
@@ -279,7 +279,7 @@ const Registration = () => {
           Already have an account?{" "}
           <Link
             to="/login"
-            className="font-semibold text-yellow-500 hover:underline"
+            className="font-semibold text-[#795548]  hover:underline"
           >
             Login
           </Link>

@@ -55,7 +55,7 @@ const Navbar = () => {
           ) : (
             <div>
               <Link to={"/registration"}>
-                <button className="btn bg-yellow-500 text-white font-semibold">
+                <button className="btn bg-[#795548]  text-white font-semibold">
                   Sign Up
                 </button>
               </Link>
