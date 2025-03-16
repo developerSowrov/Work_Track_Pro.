@@ -104,7 +104,7 @@ const Progress = () => {
             {filteredData?.map((emp, index) => (
               <tr
                 key={emp.id}
-                className="border-b hover:bg-gray-50 text-sm sm:text-sm md:text-base lg:text-lg"
+                className="border-b hover:bg-gray-50 text-sm  md:text-base lg:text-lg"
               >
                 <td className="p-2">{index + 1}</td>
                 <td className="p-2">{emp.name}</td>

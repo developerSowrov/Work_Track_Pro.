@@ -31,73 +31,84 @@ const Payroll = () => {
           date: currentDate,
         }
       );
-      
+
       refetch();
       Swal.fire({
         icon: "success",
-        title: "Payment Successfull",
+        title: "Payment Successful",
         draggable: true,
       });
 
       paymentSend(employee);
     } catch (err) {
-      // console.log(err);
+      console.error("Payment update error:", err);
     }
   };
+
   const paymentSend = async (employee) => {
     try {
       const trxId = Math.random().toString(36).substring(2, 12).toUpperCase();
-      const {email,salary,month,year} = employee
-      const data ={
-        email,salary,month,year,trxId
-      }
-      await axios.post(`${import.meta.env.VITE_Localhost}/successPayment`, data);
+      const { email, salary, month, year } = employee;
+      const data = { email, salary, month, year, trxId };
+      await axios.post(
+        `${import.meta.env.VITE_Localhost}/successPayment`,
+        data
+      );
     } catch (err) {
-      // console.error("Error adding work:", err);
+      console.error("Error sending payment:", err);
     }
   };
+
   if (isPending) return <Loading />;
   if (error) return <Error />;
+
   return (
-    <div className="overflow-x-auto">
-      <h1 className="text-3xl font-bold text-center mb-4">Employee List</h1>
-      <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
-        <thead className="bg-[#795548] text-gray-700">
+    <div className="overflow-x-auto px-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6">
+        Employee Payroll
+      </h1>
+
+      <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg">
+        <thead className="bg-[#795548] text-xs sm:text-sm md:text-base text-white">
           <tr>
-            <th className="p-3 text-left text-white">#</th>
-            <th className="p-3 text-left text-white">Name</th>
-            <th className="p-3 text-left text-white">Salary</th>
-            <th className="p-3 text-center text-white">Month</th>
-            <th className="p-3 text-center text-white">Year </th>
-            <th className="p-3 text-center text-white">Payment</th>
-            <th className="py-3   text-center text-white">Date</th>
+            <th className="p-2 md:p-3 text-left">#</th>
+            <th className="p-2 md:p-3 text-left">Name</th>
+            <th className="p-2 md:p-3 text-left">Salary</th>
+            <th className="p-2 md:p-3 text-center">Month</th>
+            <th className="p-2 md:p-3 text-center">Year</th>
+            <th className="p-2 md:p-3 text-center">Payment</th>
+            <th className="p-2 md:p-3 text-center">Date</th>
           </tr>
         </thead>
         <tbody>
           {employees?.map((employee, index) => (
-            <tr key={employee.id} className="border-b hover:bg-gray-50">
-              <td className="p-3 font-semibold text-gray-800">{index + 1}</td>
-              <td className="p-3">{employee.name}</td>
-              <td className="p-3 text-gray-600">{employee.salary}</td>
-              <td className="p-3 text-center">{employee.month}</td>
-              <td className="p-3 text-center">{employee.year}</td>
-              <td className=" p-3 text-center">
+            <tr
+              key={employee._id}
+              className="border-b hover:bg-gray-50 text-sm md:text-base lg:text-lg"
+            >
+              <td className="p-2 md:p-3 font-semibold text-gray-800">
+                {index + 1}
+              </td>
+              <td className="p-2 md:p-3">{employee.name}</td>
+              <td className="p-2 md:p-3 text-gray-600">{employee.salary}</td>
+              <td className="p-2 md:p-3 text-center">{employee.month}</td>
+              <td className="p-2 md:p-3 text-center">{employee.year}</td>
+              <td className="p-2 md:p-3 text-center">
                 {employee.payment ? (
-                  <button disabled>
+                  <button disabled className="opacity-50 cursor-not-allowed">
                     <FaCheckCircle className="text-gray-400 text-2xl mx-auto" />
                   </button>
                 ) : (
                   <button
                     onClick={() => payBtn(employee._id, employee)}
-                    className=" "
+                    className="hover:scale-110 transition-transform"
                   >
                     <FaCheckCircle className="text-green-500 text-2xl mx-auto" />
                   </button>
                 )}
               </td>
-
-              <td className=" py-3  text-center font-semibold">
-                {employee.date}
+              <td className="p-2 md:p-3 text-center font-semibold">
+                {employee.date || "N/A"}
               </td>
             </tr>
           ))}

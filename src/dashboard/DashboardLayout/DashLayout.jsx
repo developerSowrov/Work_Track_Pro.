@@ -168,7 +168,7 @@ const DashLayout = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#795548] h-screen pb-96 text-white w-64 p-4 hidden md:block">
+      <div className="bg-[#795548] h-screen pb-96 text-white lg:w-64 md:w-56 p-4 hidden md:block">
         <h2 className="text-3xl font-semibold mb-8 text-center">
           WorkTrackPro.
         </h2>

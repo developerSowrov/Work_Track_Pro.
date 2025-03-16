@@ -74,7 +74,7 @@ const AllEmployee = () => {
   if (error) return <Error />;
 
   return (
-    <div className="p-5">
+    <div className="p-2">
       <h1 className="text-3xl font-bold text-center mb-4">Employee List</h1>
 
       <div className="flex justify-center mb-4">
@@ -91,7 +91,7 @@ const AllEmployee = () => {
       {viewMode === "table" ? (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
-            <thead className="bg-[#795548] text-gray-700">
+            <thead className="bg-[#795548] text-gray-700 text-sm  md:text-base lg:text-lg">
               <tr>
                 <th className="p-3 text-left text-white">#</th>
                 <th className="p-3 text-left text-white">Name</th>
@@ -102,7 +102,7 @@ const AllEmployee = () => {
             </thead>
             <tbody>
               {employees?.map((employee, index) => (
-                <tr key={employee.id} className="border-b hover:bg-gray-50">
+                <tr key={employee.id} className="border-b hover:bg-gray-50 text-sm  md:text-base lg:text-lg">
                   <td className="p-3 font-semibold text-gray-800">
                     {index + 1}
                   </td>
