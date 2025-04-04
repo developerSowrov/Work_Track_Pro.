@@ -8,12 +8,17 @@ const Testimonial = () => {
         <div className=" py-12 my-16">
           <div className="max-w-7xl mx-auto px-6 text-center">
             {/* Section Title */}
-            <h2 className="text-4xl font-bold text-gray-800 mb-8 relative">
+            <h2 className="text-4xl font-bold text-gray-800 mb-3 relative">
               TESTIMONIALS
               <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 text-gray-200 text-8xl font-bold -z-10">
                 T
               </span>
             </h2>
+            <p className="text-gray-600 mt-2 mb-8 w-8/12 mx-auto">
+              We offer advanced tools to streamline employee management, boost
+              productivity, simplify workflows, and enhance workplace
+              collaboration.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Testimonial 1 */}
