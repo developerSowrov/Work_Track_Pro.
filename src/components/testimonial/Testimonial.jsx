@@ -22,7 +22,7 @@ const Testimonial = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Testimonial 1 */}
-              <div className="bg-white p-6 shadow-lg rounded-lg">
+              <div className="bg-[#79554833] p-6 shadow-lg rounded-lg">
                 <img
                   src={one}
                   alt="Albert Webb"
@@ -41,7 +41,7 @@ const Testimonial = () => {
               </div>
 
               {/* Testimonial 2 */}
-              <div className="bg-white p-6 shadow-lg rounded-lg">
+              <div className="bg-[#79554833] p-6 shadow-lg rounded-lg">
                 <img
                   src={two}
                   alt="Kelly McMillan"
@@ -59,7 +59,7 @@ const Testimonial = () => {
               </div>
 
               {/* Testimonial 3 */}
-              <div className="bg-white p-6 shadow-lg rounded-lg">
+              <div className="bg-[#79554833] p-6 shadow-lg rounded-lg">
                 <img
                   src={three}
                   alt="Harold Barnett"
