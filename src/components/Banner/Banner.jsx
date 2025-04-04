@@ -14,31 +14,6 @@ const Banner = () => {
   };
   return (
     <div className="bg-[#79554833]">
-      {/* <div className="my-16 ">
-        <div className="carousel rounded-box w-full">
-          <div className="carousel-item w-full">
-            <img
-              src={two}
-              className="w-full object-cover h-[500px]"
-              alt="Tailwind CSS Carousel component"
-            />
-          </div>
-          <div className="carousel-item w-full">
-            <img
-              src={three}
-              className="w-full object-cover h-[500px]"
-              alt="Tailwind CSS  Carousel component"
-            />
-          </div>
-          <div className="carousel-item w-full">
-            <img
-              src={one}
-              className="w-full object-cover h-[500px]"
-              alt="Tailwind CSS Carousel component"
-            />
-          </div>
-        </div>
-      </div> */}
       <div className="hero  w-11/12 mx-auto min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Lottie options={defaultOption}></Lottie>
