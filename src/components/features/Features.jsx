@@ -6,11 +6,14 @@ const Features = () => {
       <section className="features bg-white py-16">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold text-gray-800">Key Features</h2>
+          <p className="text-gray-600 mt-2 w-8/12 mx-auto">
+          WorkTrackPro offers task tracking, real-time updates, team collaboration, analytics, notifications, user roles, responsive design, and secure data handling.
+        </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-8">
             
             {/* Task Management */}
-            <div className="feature-card p-6 shadow-lg rounded-lg bg-gray-50">
-              <h3 className="text-xl font-semibold text-gray-700">
+            <div className="feature-card p-6 shadow-lg rounded-lg bg-gray-900">
+              <h3 className="text-xl font-semibold text-gray-100">
                 Task Management
               </h3>
               <p className="text-gray-600 mt-4">

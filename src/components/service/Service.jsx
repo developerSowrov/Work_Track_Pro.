@@ -4,7 +4,7 @@ const Service = () => {
   return (
     <section className="py-12 px-6">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold">Our Features</h2>
+        <h2 className="text-4xl font-bold">Our Features</h2>
         <p className="text-gray-600 mt-2 w-8/12 mx-auto">
           We offer advanced tools to streamline employee management, boost
           productivity, simplify workflows, and enhance workplace collaboration.

@@ -3,12 +3,14 @@ import two from "../../assets/confident-business-people-standing-board-meeting.j
 const Blog = () => {
   return (
     <div>
-      <div className="bg-gray-100 p-8 mb-20 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Our Blog & News</h2>
-        <p className="text-gray-600 mb-6">
-          Discover the latest insights and trends in education, technology, and
-          career development.
-        </p>
+      <h2 className="text-4xl font-bold mb-4 mx-auto text-center">
+        Our Blog & News
+      </h2>
+      <p className="text-gray-600 mb-6 mx-auto text-center">
+        Discover the latest insights and trends in education, technology, and
+        career development.
+      </p>
+      <div className="bg-[#79554833] p-8 mb-20 rounded-lg shadow-md">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white rounded-lg p-4 shadow-sm">
             <img

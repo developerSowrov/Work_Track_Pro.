@@ -8,10 +8,10 @@ const Teams = () => {
       <section className="team-and-founder pb-20 pt-10 ">
         <div className="container mx-auto text-center px-6">
           {/* Section Heading */}
-          <h2 className="text-[40px] font-bold text-gray-800 mb-3 animate-fadeIn">
+          <h2 className="text-4xl font-bold text-gray-800 mb-3 animate-fadeIn">
             Meet Our Team & Founders
           </h2>
-          <p className="text-lg text-gray-600 w-8/12 mx-auto mb-12 animate-fadeIn animation-delay-100">
+          <p className=" text-gray-600 w-8/12 mx-auto mb-12 animate-fadeIn animation-delay-100">
             Our team is driven by a passion to innovate and create impactful
             solutions. Get to know the talented individuals behind WorkTrackPro.
           </p>
