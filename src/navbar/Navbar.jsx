@@ -12,22 +12,22 @@ const Navbar = () => {
       });
   };
   return (
-    <div className=" bg-base-100 shadow-sm">
+    <div className=" bg-[#795548] shadow-sm">
       <div className=" navbar max-w-[1180px]  mx-auto">
         <div className="mr-1">
           <img className="w-10 h-10  rounded-full" src={pic} alt="" />
         </div>
         <div className="flex-1">
-          <a className=" font-semibold text-xl">WorkTracPro.</a>
+          <a className="text-[#EEEEEE] font-semibold text-xl">WorkTracPro.</a>
         </div>
         <div className="flex justify-center items-center gap-4">
           {user && (
             <div>
-              <NavLink to={"/dashboard"}>Dashboard</NavLink>
+              <NavLink to={"/dashboard"} className="text-[#EEEEEE]">Dashboard</NavLink>
             </div>
           )}
           <div>
-            <NavLink to={"/contact"}>Contact US</NavLink>
+            <NavLink to={"/contact"} className="text-[#EEEEEE]">Contact US</NavLink>
           </div>
           {user ? (
             <div className="dropdown dropdown-end">

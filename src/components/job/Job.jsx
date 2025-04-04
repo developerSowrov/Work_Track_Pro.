@@ -3,7 +3,7 @@ import pic from "../../assets/2333362_310830-P8R3OL-35.jpg";
 const Job = () => {
   return (
     <div>
-      <div className="bg-gray-100 px-6 py-12 md:px-16">
+      <div className=" px-6 py-12 md:px-16">
         <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl mx-auto">
           {/* Left Image Section */}
           <div className="w-full md:w-1/2">

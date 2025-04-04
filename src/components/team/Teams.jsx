@@ -5,13 +5,13 @@ import img3 from "../../assets/young-bearded-man-with-striped-shirt.jpg";
 const Teams = () => {
   return (
     <div>
-      <section className="team-and-founder py-20 bg-gray-50 my-20">
+      <section className="team-and-founder pb-20 pt-10 ">
         <div className="container mx-auto text-center px-6">
           {/* Section Heading */}
-          <h2 className="text-4xl font-semibold text-gray-800 mb-8 animate-fadeIn">
+          <h2 className="text-[40px] font-bold text-gray-800 mb-3 animate-fadeIn">
             Meet Our Team & Founders
           </h2>
-          <p className="text-lg text-gray-600 mb-12 animate-fadeIn animation-delay-100">
+          <p className="text-lg text-gray-600 w-8/12 mx-auto mb-12 animate-fadeIn animation-delay-100">
             Our team is driven by a passion to innovate and create impactful
             solutions. Get to know the talented individuals behind WorkTrackPro.
           </p>
@@ -19,15 +19,13 @@ const Teams = () => {
           {/* Team Members Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Founder */}
-            <div className="team-member bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp">
+            <div className="team-member bg-[#79554833] p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp">
               <img
                 src={img1}
                 alt="Founder"
                 className="w-32 h-32 object-cover mx-auto rounded-full mb-6"
               />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2">
-                John Doe
-              </h3>
+              <h3 className="text-2xl font-semibold  mb-2">John Doe</h3>
               <p className="text-gray-500 mb-4">Founder & CEO</p>
               <p className="text-gray-600">
                 John is the visionary behind WorkTrackPro, bringing over 10
@@ -36,7 +34,7 @@ const Teams = () => {
             </div>
 
             {/* Team Member 1 */}
-            <div className="team-member bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp animation-delay-200">
+            <div className="team-member bg-[#79554833] p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp animation-delay-200">
               <img
                 src={img2}
                 alt="Team Member 1"
@@ -53,7 +51,7 @@ const Teams = () => {
             </div>
 
             {/* Team Member 2 */}
-            <div className="team-member bg-white p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp animation-delay-300">
+            <div className="team-member bg-[#79554833] p-8 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp animation-delay-300">
               <img
                 src={img3}
                 alt="Team Member 2"

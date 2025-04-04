@@ -13,13 +13,13 @@ const Banner = () => {
     },
   };
   return (
-    <div className="bg-[#79554833]">
+    <div className="">
       <div className="hero  w-11/12 mx-auto min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Lottie options={defaultOption}></Lottie>
           <div>
-            <h1 className="text-5xl font-bold">Simplify Your Tasks!</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold ">Simplify Your Tasks!</h1>
+            <p className="py-6 text-gray-600">
               A powerful platform that streamlines your business operations,
               saves time, and boosts productivity. Manage tasks effortlessly and
               stay organized.
