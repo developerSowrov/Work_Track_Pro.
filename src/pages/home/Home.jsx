@@ -8,19 +8,35 @@ import Teams from "../../components/team/Teams";
 import Testimonial from "../../components/testimonial/Testimonial";
 // import PopularChart from "../char/PopularChart";
 // import Charts from "../char/PopularChart";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Home = () => {
+  AOS.init();
+
   return (
     <div>
       <Banner></Banner>
       <div className="w-11/12 mx-auto">
-        <Teams></Teams>
-        <Job></Job>
-        <Service></Service>
-        <Testimonial></Testimonial>
+        {" "}
+        <div data-aos="fade-up">
+          <Teams></Teams>
+        </div>
+        <div data-aos="fade-left">
+          <Job></Job>
+        </div>
+        <div data-aos="fade-right">
+          <Service></Service>
+        </div>
+        <div data-aos="fade-down">
+          <Testimonial></Testimonial>
+        </div>
         {/* <Features></Features> */}
-        <Blog></Blog>
-        <Faqs></Faqs>
+        <div data-aos="fade-up-right">
+          <Blog></Blog>
+        </div>
+        <div data-aos="fade-up-left">
+          <Faqs></Faqs>
+        </div>
       </div>
       {/* <PopularChart></PopularChart> */}
     </div>
