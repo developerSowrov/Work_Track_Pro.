@@ -13,13 +13,15 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Teams></Teams>
-      <Job></Job>
-      <Service></Service>
-      <Testimonial></Testimonial>
-      <Features></Features>
-      <Blog></Blog>
-      <Faqs></Faqs>
+      <div className="w-11/12 mx-auto">
+        <Teams></Teams>
+        <Job></Job>
+        <Service></Service>
+        <Testimonial></Testimonial>
+        <Features></Features>
+        <Blog></Blog>
+        <Faqs></Faqs>
+      </div>
       {/* <PopularChart></PopularChart> */}
     </div>
   );
